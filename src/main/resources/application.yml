@@ -1,0 +1,41 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  profiles:
+    active: "TEST"
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.sql
+    enabled: true
+---
+
+spring:
+  profiles: TEST
+  datasource:
+    url: jdbc:h2:mem:weblib;Mode=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;
+    username: h2
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    database: H2
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+---
+
+spring:
+  profiles: DEV
+
+  datasource:
+    url: jdbc:postgresql://localhost/weblib
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
