@@ -4,6 +4,7 @@ import com.library.weblib.domain.exception.UserNotFoundException
 import com.library.weblib.domain.model.User
 import com.library.weblib.domain.repository.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 /**
@@ -11,7 +12,19 @@ import org.springframework.transaction.annotation.Transactional
  * Class used by controller for management <code>{@link User}</code>
  * @param userRepository must not be {@literal null}. Repository with database operations.
  */
-class UserService(@Autowired var userRepository: UserRepository) {
+@Service
+class UserService(@Autowired val userRepository: UserRepository) {
+
+    /**
+     *
+     * find <code>{@link User}</code> by {@literal email}.
+     * @param email must not be {@literal null}.
+     * @throws UserNotFoundException in case the haven't <code>{@link User}</code> with {@literal email}.
+     * @return <code>{@link User}</code> with {@literal email}.
+     *
+     */
+    fun findByCpf(cpf: String): User = userRepository.findByCpf(cpf)
+            .orElseThrow{ UserNotFoundException("The user with cpf $cpf wasn't not found") }
 
     /**
      *

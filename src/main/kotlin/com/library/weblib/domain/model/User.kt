@@ -1,14 +1,18 @@
 package com.library.weblib.domain.model
 
+import com.github.pozo.KotlinBuilder
 import java.time.ZonedDateTime
 import javax.persistence.*
 
 
 /**
-* POKO to representate User
-*/
+ *
+ * POKO to representate User
+ *
+ */
 @Entity
 @Table(name = "users")
+@KotlinBuilder
 data class User(
         @Id
         @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_id_seq")
@@ -20,7 +24,10 @@ data class User(
         var name: String,
 
         @Column(length = 200, nullable = false)
-        var email: String
+        var email: String,
+
+        @Column(length = 11, nullable = false, columnDefinition = "char(11)")
+        var cpf: String
 ){
 
     @Column(nullable = false)

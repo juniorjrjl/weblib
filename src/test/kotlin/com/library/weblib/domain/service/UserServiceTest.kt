@@ -35,7 +35,7 @@ class UserServiceTest {
     @BeforeEach
     fun setup(){
         userService = UserService(userRepository)
-        user = User(0, "João", "joao@gmail.com")
+        user = User(0, "João", "joao@gmail.com", "1234567890")
         userService.save(user)
     }
 
@@ -57,7 +57,8 @@ class UserServiceTest {
     fun saveTest(){
         val name = "Maria"
         val email = "maria@gmail.com"
-        val user = User(0, name, email)
+        val cpf = "09876543210"
+        val user = User(0, name, email, cpf)
         val savedUser = userRepository.save(user)
         val currentTime = ZonedDateTime.now()
         Assertions.assertThat(savedUser).isNotNull
@@ -66,6 +67,7 @@ class UserServiceTest {
         Assertions.assertThat(savedUser.updatedAt).isBefore(currentTime)
         Assertions.assertThat(savedUser.name).isEqualTo(name)
         Assertions.assertThat(savedUser.email).isEqualTo(email)
+        Assertions.assertThat(savedUser.cpf).isEqualTo(cpf)
     }
 
     /**
@@ -78,11 +80,13 @@ class UserServiceTest {
         val storedUser = userService.findById(user.id)
         storedUser.name = "Juca"
         storedUser.email = "juca@gmail.com"
+        storedUser.cpf= "9876543210"
         val updatedUser = userService.save(storedUser)
         Assertions.assertThat(updatedUser).isNotNull
         Assertions.assertThat(updatedUser.id).isEqualTo(savedUser.id)
         Assertions.assertThat(updatedUser.name).isNotEqualTo(savedUser.name)
         Assertions.assertThat(updatedUser.email).isNotEqualTo(savedUser.email)
+        Assertions.assertThat(updatedUser.cpf).isNotEqualTo(savedUser.cpf)
         Assertions.assertThat(updatedUser.createdAt).isEqualTo(savedUser.createdAt)
         Assertions.assertThat(updatedUser.updatedAt).isAfter(savedUser.updatedAt)
     }
