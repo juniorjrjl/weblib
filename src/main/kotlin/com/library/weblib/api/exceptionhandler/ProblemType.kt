@@ -1,5 +1,10 @@
 package com.library.weblib.api.exceptionhandler
 
+/**
+ *
+ * Enum to represent some problems can occur in api
+ *
+ */
 enum class ProblemType(path: String, var title: String) {
     RESOURCE_NOT_FOUND("/resource-not-found", "Resource not found"),
     ENTITY_IN_USE("/entity-in-use", "Entity in use"),

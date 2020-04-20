@@ -36,7 +36,7 @@ class UserController(
 
     /**
      *
-     * POST response to '/user/}'
+     * POST response to '/user/'
      * @param dto users data to save
      * @return A saved user
      *
@@ -45,7 +45,7 @@ class UserController(
     @PostMapping
     fun create(@RequestBody @Valid dto: UserInput): SingleUserModel{
         val user = userDisassembler.toModel(dto)
-        val savedUser = userService.userRepository.save(user)
+        val savedUser = userService.save(user)
         return userAssembler.toModel(savedUser)
     }
 

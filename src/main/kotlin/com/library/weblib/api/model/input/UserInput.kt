@@ -23,4 +23,13 @@ class UserInput {
     @field:NotBlank
     @field:Size(min = 11, max = 11)
     var cpf: String = ""
+
+    constructor()
+
+    constructor(name: String, email: String, cpf: String){
+        this.name = name
+        this.email = email
+        this.cpf = cpf
+    }
+
 }
