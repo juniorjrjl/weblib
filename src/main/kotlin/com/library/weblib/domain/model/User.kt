@@ -17,7 +17,7 @@ data class User(
         @Id
         @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_id_seq")
         @SequenceGenerator(name = "users_id_seq", sequenceName = "users_id_seq", allocationSize = 1)
-        @Column(insertable = false, updatable = false, nullable = false ,columnDefinition = "decimal")
+        @Column(insertable = false, updatable = false, nullable = false ,columnDefinition = "numeric")
         var id: Long,
 
         @Column(length = 150, nullable = false)
@@ -26,7 +26,7 @@ data class User(
         @Column(length = 200, nullable = false)
         var email: String,
 
-        @Column(length = 11, nullable = false, columnDefinition = "char(11)")
+        @Column(length = 11, nullable = false, columnDefinition = "bpchar(11)")
         var cpf: String
 ){
 

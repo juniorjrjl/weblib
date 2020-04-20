@@ -31,7 +31,7 @@ class UserController(
      *
      */
     @GetMapping("{cpf}")
-    fun findByNickname(@PathVariable cpf: String): SingleUserModel = userAssembler.toModel(userService.findByCpf(cpf))
+    fun findByCpf(@PathVariable cpf: String): SingleUserModel = userAssembler.toModel(userService.findByCpf(cpf))
 
 
     /**

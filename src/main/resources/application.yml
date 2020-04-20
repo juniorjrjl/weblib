@@ -1,9 +1,11 @@
+server:
+  port: 8090
 spring:
   jpa:
     hibernate:
       ddl-auto: validate
   profiles:
-    active: "TEST"
+    active: "DEV"
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.sql
     enabled: true

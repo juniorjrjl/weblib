@@ -83,7 +83,7 @@ class UserControllerTest : AbstractControllerTest() {
         userController.userService = userService
         val cpf = "1111111111"
         val problemType = ProblemType.RESOURCE_NOT_FOUND
-        val exceptionMessage = "The user with cpf $cpf wasn't not found"
+        val exceptionMessage = "The user with cpf '$cpf' wasn't not found"
         val problem = Problem.Builder(HttpStatus.NOT_FOUND.value(), OffsetDateTime.now())
                 .problem(problemType).detail(exceptionMessage)
         lenient().`when`(userService.findByCpf(cpf)).thenThrow(UserNotFoundException(exceptionMessage))

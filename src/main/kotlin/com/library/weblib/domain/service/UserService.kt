@@ -24,7 +24,7 @@ class UserService(@Autowired val userRepository: UserRepository) {
      *
      */
     fun findByCpf(cpf: String): User = userRepository.findByCpf(cpf)
-            .orElseThrow{ UserNotFoundException("The user with cpf $cpf wasn't not found") }
+            .orElseThrow{ UserNotFoundException("The user with cpf '$cpf' wasn't not found") }
 
     /**
      *
