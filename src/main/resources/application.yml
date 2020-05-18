@@ -5,7 +5,7 @@ spring:
     hibernate:
       ddl-auto: validate
   profiles:
-    active: "DEV"
+    active: "TEST"
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.sql
     enabled: true
@@ -31,9 +31,9 @@ spring:
   profiles: DEV
 
   datasource:
-    url: jdbc:postgresql://localhost/weblib
-    username: postgres
-    password: root
+    url: jdbc:postgresql://weblibdb/weblib
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
     driver-class-name: org.postgresql.Driver
   jpa:
     database: POSTGRESQL

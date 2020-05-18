@@ -1,0 +1,2 @@
+# gradle bootRun
+gradle test
