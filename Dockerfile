@@ -9,3 +9,5 @@ RUN mkdir -p $INSTALL_PATH
 WORKDIR $INSTALL_PATH
 
 COPY . .
+
+RUN gradle clean && gradle bootJar

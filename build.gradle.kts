@@ -16,8 +16,8 @@ plugins {
 }
 
 group = "cm.library"
-version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_1_8
+//version = "0.0.1-SNAPSHOT"
+java.sourceCompatibility = JavaVersion.VERSION_14
 
 val developmentOnly by configurations.creating
 configurations {
@@ -66,7 +66,6 @@ dependencies {
 	}
 }
 
-
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
@@ -74,21 +73,21 @@ tasks.withType<Test> {
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "1.8"
+		jvmTarget = JavaVersion.VERSION_13.toString()
 	}
 }
 
 tasks.compileKotlin{
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "1.8"
+		jvmTarget = JavaVersion.VERSION_13.toString()
 	}
 }
 
 tasks.compileTestKotlin {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "1.8"
+		jvmTarget = JavaVersion.VERSION_13.toString()
 	}
 }
 

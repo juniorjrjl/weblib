@@ -14,9 +14,11 @@ services:
     command: bash start.sh
     ports:
       - "8090:8090"
+      - "5005:5005"
     environment:
       - POSTGRES_USERNAME=postgres
       - POSTGRES_PASSWORD=postgres
+      - GRADLE_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=*:5005
     volumes:
       - .:/weblib
     depends_on:
