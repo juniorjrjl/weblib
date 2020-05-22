@@ -7,7 +7,7 @@ var versaoMockitoKotlin = "2.2.0"
 
 plugins {
 	id("idea")
-	id("org.springframework.boot") version "2.2.6.RELEASE"
+	id("org.springframework.boot") version "2.2.7.RELEASE"
 	id("io.spring.dependency-management") version "1.0.9.RELEASE"
 	kotlin("jvm") version "1.3.72"
 	kotlin("plugin.spring") version "1.3.72"
@@ -65,6 +65,7 @@ dependencies {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
 }
+
 
 tasks.withType<Test> {
 	useJUnitPlatform()

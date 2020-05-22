@@ -1,2 +1,3 @@
-#java -Djava.security.egd=file:/dev/./urandom -jar /weblib/build/libs/weblib.jar
-gradle bootRun
+gradle clean
+gradle bootJar
+java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 build/libs/weblib.jar

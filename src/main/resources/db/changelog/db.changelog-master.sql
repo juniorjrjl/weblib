@@ -4,7 +4,7 @@
 --comment: Create user table
 CREATE TABLE users
 (
-    id NUMERIC(19,0) NOT NULL,
+    id BIGINT NOT NULL,
     name VARCHAR(150) NOT NULL,
     email VARCHAR(200) NOT NULL UNIQUE,
     cpf CHAR(11) NOT NULL UNIQUE,
